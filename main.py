@@ -54,7 +54,6 @@ class Application:
             MenuItem('Quit', lambda: self.quit_window()),
             MenuItem('Show', self.show_window)
         )
-
         # self.root.wm_attributes("-transparentcolor", self.bg_color)
         self.root.overrideredirect(True)
         self.root.attributes("-alpha", 0.7)
