@@ -3,8 +3,6 @@ import os
 import sys
 import threading
 import time
-import winreg
-
 import requests
 from tkinter import *
 from PIL import Image, ImageTk
@@ -20,7 +18,7 @@ def resource_path(relative_path):
     return os.path.join(os.path.abspath('.'), relative_path)
 
 REQUEST_TIMEOUT = 5
-IMG_DIR = resource_path("img")
+IMG_DIR = resource_path("assets/images")
 PIRATE_FLAG = f"{IMG_DIR}/pirate_flag.png"
 
 class Application:
@@ -30,6 +28,7 @@ class Application:
         self.last_ip = None
 
         self.root = Tk()
+        self.root.overrideredirect(True)
 
         self.root.title("MyIP Widget")
         self.root.iconbitmap(f"{IMG_DIR}\\icon.ico")
@@ -55,7 +54,6 @@ class Application:
             MenuItem('Show', self.show_window)
         )
         # self.root.wm_attributes("-transparentcolor", self.bg_color)
-        self.root.overrideredirect(True)
         self.root.attributes("-alpha", 0.7)
         self.root.attributes('-topmost', True)
         self.root.configure(bg=self.bg_color)
